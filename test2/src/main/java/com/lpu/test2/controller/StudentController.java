@@ -49,11 +49,11 @@ public class StudentController {
 
     @PostMapping("/{id}/profile")
     public String uploadProfile(@PathVariable Long id,
-                                @RequestParam MultipartFile file)
+                                @RequestParam MultipartFile fil)
             throws IOException {
 
         Student s = service.getById(id);
-        s.setProfileImage(file.getBytes());
+        s.setProfileImage(fil.getBytes());
         service.update(id,s);
 
         return "Profile uploaded";
